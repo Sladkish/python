@@ -5,7 +5,7 @@ import sys
 import psutil
 
 print("моя первая прога")
-print("привет Гусь!")
+print("привет красавчик!")
 
 name = input("Ваше имя: ")
 print(name, ", добро пожаловать!")
