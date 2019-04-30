@@ -35,11 +35,9 @@ def mult(num):
         m = m*int(digit)
     return m
 
-five_nums=[]
 super_mult=0
 for i in number:
     el = re.search(r'[0-9]{5}', number)
-    five_nums.append(el.group(0))
     result = re.search(f'{mult(el.group(0))}', copy_number)
     if result is not None:
         if int(result.group(0)) > super_mult:
@@ -48,13 +46,14 @@ for i in number:
             super_five_nums=el.group(0)
     number=number[number.index(i)+1:]
     if len(number)== 5:
-        five_nums.append(number)
+
         result = re.search(f'{mult(number)}', copy_number)
-        result = re.search(f'{mult(el.group(0))}', copy_number)
+
         if result is not None:
             if int(result.group(0)) > super_mult:
                 super_mult = int(result.group(0))
                 index_five_nums = copy_number.index(number)
+                super_five_nums = number
         break
 print("послеовательность:",super_five_nums)
 print("произведение:",super_mult)
